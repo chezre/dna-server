@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 	<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Contact Us Example</title>  
+	
+	<!-- Ninja JS Files -->
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/ninja.config.js"></script>
+	
+	<!-- recaptcha -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+	<link rel="stylesheet" href="../css/ninja.config.css" />
+</head>
+<body>
+	<div id="contentDiv">
+		<div id="mainHeadingDiv"><div style="float:left">Contact Us Example</div><div id="btnConfig">Config</div><div class="tgl">View Instructions</div></div>
+		<div id="exampleFrmDiv">
+			<form method="POST" action="submit.contact.php" id="frmContactUs" name="frmContactUs">
+				<div id="divStandardInputs" class="inputDiv">
+					<!-- Standard Inputs -->
+					<div class="hdr">Standard Inputs</div>
+					<input type="text" placeholder="Full Name" name="name" />
+					<input type="text" placeholder="Phone Number" name="contactno" />
+					<input type="text" placeholder="E-mail Address" name="email" />
+					<textarea name="message" placeholder="Message"></textarea>
+				</div>
+				<div id="divCustomInputs" class="inputDiv">
+					<!-- Custom Inputs -->
+					<div class="hdr">Custom Inputs</div>
+					<input type="text" placeholder="Custom Input" name="custom_input[]" />
+					<select name="custom_select[]" placeholder="Service">
+						<option value="">-- custom select --</option>
+						<option>Quote request</option>
+						<option>Build a Roof</option>
+						<option>Fix a Roof</option>
+						<option>Meeting request</option>
+					</select>
+					<textarea name="custom_textarea[]" placeholder="Custom Message"></textarea>
+				</div>
+				<div id="divCaptcha" class="inputDiv">
+					<!-- Captcha Code -->
+					<div class="hdr">Captcha</div>
+					<div class="g-recaptcha"></div>
+				</div>
+				<div id="divSubmit" class="inputDiv">
+					<!-- Submit Button -->
+					<div class="hdr">Submit Button</div>
+					<input type="button" id="btnSubmit" value="Submit your request" />
+				</div>
+			</form>
+		</div>
+		<div id="imgDiv"><img src="../img/form.png" /></div>
+		<div id="exampleExpDiv">
+			<div class="inputDiv">
+				<div class="hdr">Instructions</div>
+				<!-- 
+					/ = &#47;
+					< = &lt;
+					> = &gt;
+					= = &#61;
+					" = &quot;
+					: = &#58;
+					- = &ndash;
+					. = &#46;
+				-->
+				<ol>
+					<li>First check if jquery is included, if NOT add these files to the &lt;head&gt;<br />
+						<ul>
+							<li><span class="nameLbl">&lt;script type&#61;<span class="nameVal">&quot;text&#47;javascript&quot;</span> src&#61;<span class="nameVal">&quot;js&#47;jquery&ndash;1&#46;11&#46;1&#46;min&#46;js&quot;</span>&gt;&lt;&#47;script&gt;</span></li>
+							<li><span class="nameLbl">&lt;script type&#61;<span class="nameVal">&quot;text&#47;javascript&quot;</span> src&#61;<span class="nameVal">&quot;js&#47;ninja.contact.js&quot;</span>&gt;&lt;&#47;script&gt;</span></li>
+							<li><span class="nameLbl">&lt;script src&#61;<span class="nameVal">&quot;https:&#47;&#47;www.google.com&#47;recaptcha&#47;api.js&quot;</span> async defer&gt;&lt;&#47;script&gt;</span></li>
+						</ul>
+						If jquery is already included then add these lines below where jquery is included:
+						<ul>
+							<li><span class="nameLbl">&lt;script type&#61;<span class="nameVal">&quot;text&#47;javascript&quot;</span> src&#61;<span class="nameVal">&quot;js&#47;ninja.contact.js&quot;</span>&gt;&lt;&#47;script&gt;</span></li>
+							<li><span class="nameLbl">&lt;script src&#61;<span class="nameVal">&quot;https:&#47;&#47;www.google.com&#47;recaptcha&#47;api.js&quot;</span> async defer&gt;&lt;&#47;script&gt;</span></li>
+						</ul>
+					</li>
+					<li>Give the &lt;form&gt; the following attributes:<br />
+						<ul>
+							<li><span class="nameLbl">name="<span class="nameVal">frmContactUs</span>"</span></li>
+							<li><span class="nameLbl">id="<span class="nameVal">frmContactUs</span>"</span></li>
+							<li><span class="nameLbl">method="<span class="nameVal">POST</span>"</span></li>
+							<li><span class="nameLbl">action="<span class="nameVal">submit.contact.php</span>"</span></li>
+						</ul>
+					</li>
+					<li>For all the inputs strictly use these names and you must use a placeholder attribute.  (Whatever you put in the placeholder attribute will be the description for that field in the email.):<br />
+						<ul>
+							<li>Name input: <span class="nameLbl">name="<span class="nameVal">name</span>"</span> <span class="nameLbl">placeholder="<span class="nameVal">Anything you want...(eg Full Name)</span>"</span></li>
+							<li>Phone Number input: <span class="nameLbl">name="<span class="nameVal">contactus</span>"</span> <span class="nameLbl">placeholder="<span class="nameVal">Anything you want...(eg Phone No)</span>"</span></li>
+							<li>Email input: <span class="nameLbl">name="<span class="nameVal">email</span>"</span> <span class="nameLbl">placeholder="<span class="nameVal">Anything you want...(eg E-mail Address)</span>"</span></li>
+							<li>Message input: <span class="nameLbl">name="<span class="nameVal">message</span>"</span> <span class="nameLbl">placeholder="<span class="nameVal">Anything you want...(eg Your query)</span>"</span></li>
+								
+								
+							<li>For any custom input: <br /><span class="nameLbl">name="<span class="nameVal">custom_input[]</span>"</span> <span class="nameLbl">placeholder="<span class="nameVal">Anything you want...(eg Reference No)</span>"</span></li>
+							<li>For any custom dropdown: <br /><span class="nameLbl">name="<span class="nameVal">custom_select[]</span>"</span> <span class="nameLbl">placeholder="<span class="nameVal">Anything you want...(eg Favorite Color)</span>"</span></li>
+							<li>For any custom textarea: <br /><span class="nameLbl">name="<span class="nameVal">custom_textarea[]</span>"</span> <span class="nameLbl">placeholder="<span class="nameVal">Anything you want...(eg Other Comments)</span>"</span></li>
+							
+							<li>If you want to use the captcha code in the form simply add the following &lt;div&gt;: <br /><span class="nameLbl">&lt;div class&#61;<span class="nameVal">&#34;g-recaptcha&#34;</span>&gt;&lt;&#47;div &gt;</span>
+							</li>
+							<li>Make sure that the submit element has the following id attribute: <br /><span class="nameLbl">id="<span class="nameVal">btnSubmit</span>"</span></li>
+						</ul>
+					</li>
+					<li>Add the following &lt;div&gt; at the end of the form for replies:<br/>
+						<span class="nameLbl">&lt;div id&#61;<span class="nameVal">&#34;reply&#34;</span>&gt;&lt;&#47;div &gt;</span>
+					</li>
+					<li>Other Notes:<br />
+						<ul>
+							<li>if you use a dropdown make sure the first &lt;option&gt;:<br />
+								<span class="nameLbl">&lt;option value&#61;<span class="nameVal">&#34;&#34;&#34;</span>&gt;</span>&#150;&#150; select &#150;&#150;<span class="nameLbl">&lt;&#47;option&gt;</span>
+							</li>
+							<li>Disable any original form validation</li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+		</div>
+		<div id="reply" style="display:none;padding:20px;clear: both;">hello</div>
+	</div>
+</body>
+</html>

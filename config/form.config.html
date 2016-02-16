@@ -1,0 +1,131 @@
+<script type="text/javascript">
+	$(".addBtn[type='to']").bind("click",newToAddressBind);
+	$(".addBtn[type='cc']").bind("click",newCCAddressBind);
+	$(".addBtn[type='bcc']").bind("click",newBCCAddressBind);
+	$("#cfgSaveBtn").bind("click",saveConfig);
+	$("#cfgRegisterBtn").click(function(){
+		$(this).hide();
+		$("#cfgSaveResult").empty().append('registering site...').show();
+		$.get("register.site.php").done(function(data){
+			alert('This website has been registered.\nKey: '+data);
+			location.reload();
+		});
+	});
+</script>
+<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="testing">In Test Mode</label></div>
+				<div class="cfgInput"><select id="testing" name="testing"><?php echo $testingOpts; ?></select></div>
+			</div>
+			<div class="note">If test mode = Yes then mail does not send. It will appear to have been sent though.</div>
+			<div class="cfgHeadingDiv">Contact Us Email Settings</div>
+			<?php if (empty($config->registration->registrationKey)) { ?><div id="notRegMessage" class="note">Please note that email will not be sent until this site is registered with the netninja.</div><?php } ?>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="fromEmailAddress">From Email Address</label></div>
+				<div class="cfgInput">
+					<input type="text" id="fromEmailAddress" name="fromEmailAddress" value="<?php echo $config->fromEmailAddress; ?>" placeholder="fromEmailAddress" />
+				</div>
+			</div>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="fromEmailName">From Email Name</label></div>
+				<div class="cfgInput">
+					<input type="text" id="fromEmailName" name="fromEmailName" value="<?php echo $config->fromEmailName; ?>" placeholder="fromEmailName" />
+				</div>
+			</div>
+			<div id="emailDiv">
+			<?php
+			$to = $config->contactUs->to->children();
+			if (!empty($to)) { 
+				foreach ($to as $e) {
+			?>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="">To Email Address</label></div>
+				<div class="cfgInput">
+					<input type="text" class="email" name="toEmail[]" value="<?php echo $e['email']; ?>" placeholder="To Email Address" />
+					<input type="text" class="email" name="toName[]" value="<?php echo $e['name']; ?>" placeholder="To Email Name" />
+				</div>
+				<div class="addBtn" type="to">+</div>
+			</div>
+			<?php 
+				}
+			} else {
+			?>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="">To Email Address</label></div>
+				<div class="cfgInput">
+					<input type="text" class="email" name="toEmail[]" value="" placeholder="To Email Address" />
+					<input type="text" class="email" name="toName[]" value="" placeholder="To Email Name" />
+				</div>
+				<div class="addBtn" type="to">+</div>
+			</div>
+			<?php } ?>
+			
+			
+			<?php
+			$cc = $config->contactUs->cc->children();
+			if (!empty($cc)) { 
+				foreach ($cc as $e) {
+			?>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="">CC Email Address</label></div>
+				<div class="cfgInput">
+					<input type="text" class="email" name="ccEmail[]" value="<?php echo $e['email']; ?>" placeholder="CC Email Address" />
+					<input type="text" class="email" name="ccName[]" value="<?php echo $e['name']; ?>" placeholder="CC Email Name" />
+				</div>
+				<div class="addBtn" type="cc">+</div>
+			</div>
+			<?php 
+				}
+			} else {
+			?>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="">CC Email Address</label></div>
+				<div class="cfgInput">
+					<input type="text" class="email" name="ccEmail[]" value="" placeholder="CC Email Address" />
+					<input type="text" class="email" name="ccName[]" value="" placeholder="CC Email Name" />
+				</div>
+				<div class="addBtn" type="cc">+</div>
+			</div>
+			<?php } ?>
+			
+			
+			<?php
+			$bcc = $config->contactUs->bcc->children();
+			if (!empty($bcc)) { 
+				foreach ($bcc as $e) {
+			?>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="">BCC Email Address</label></div>
+				<div class="cfgInput">
+					<input type="text" class="email" name="bccEmail[]" value="<?php echo $e['email']; ?>" placeholder="BCC Email Address" />
+					<input type="text" class="email" name="bccName[]" value="<?php echo $e['name']; ?>" placeholder="BCC Email Name" />
+				</div>
+				<div class="addBtn" type="bcc">+</div>
+			</div>
+			<?php 
+				}
+			} else {
+			?>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="">BCC Email Address</label></div>
+				<div class="cfgInput">
+					<input type="text" class="email" name="bccEmail[]" value="" placeholder="BCC Email Address" />
+					<input type="text" class="email" name="bccName[]" value="" placeholder="BCC Email Name" />
+				</div>
+				<div class="addBtn" type="bcc">+</div>
+			</div>
+			<?php } ?>
+			
+		</div>
+			<div class="cfgHeadingDiv">Captcha Code Settings</div>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="recaptchaPublicKey">Public Key</label></div>
+				<div class="cfgInput">
+					<input type="text" id="recaptchaPublicKey" name="recaptchaPublicKey" value="<?php echo $config->recaptchaPublicKey; ?>" placeholder="public key" />
+				</div>
+			</div>
+			<div class="cfgInputDiv">
+				<div class="cfgLabel"><label for="recaptchaPrivateKey">Private Key</label></div>
+				<div class="cfgInput">
+					<input type="text" id="recaptchaPrivateKey" name="recaptchaPrivateKey" value="<?php echo $config->recaptchaPrivateKey; ?>" placeholder="Private Key" />
+				</div>
+				</div>

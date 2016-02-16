@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<testing>N</testing>
+	<fromEmailAddress>info@netninja.co.za</fromEmailAddress>
+	<fromEmailName>Ninja Enquiry</fromEmailName>
+	<contactUs>
+		<to>
+			<address email="chezrefredericks@telkomsa.net" name="DNL Enquiries"/>
+		</to>
+		<cc>
+			<address email="chezrefredericks@gmail.com" name="Chezre Test"/>
+			<address email="nlamohr@gmail.com" name="Nico Test"/>
+		</cc>
+		<bcc/>
+	</contactUs>
+	<recaptchaPublicKey></recaptchaPublicKey>
+	<recaptchaPrivateKey></recaptchaPrivateKey>
+	<registration>
+		<registrationDate></registrationDate>
+		<registrationKey></registrationKey>
+	</registration>
+	<civicrm>
+		<inc path="/home/netnivma/public_html/dna/sites/all/modules/civicrm/civicrm.config.php" />
+		<inc path="/home/netnivma/public_html/dna/sites/all/modules/civicrm/CRM/Core/Config.php" />
+	</civicrm>
+</settings>

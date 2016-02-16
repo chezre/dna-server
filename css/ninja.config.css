@@ -1,0 +1,195 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+#contentDiv {
+	width: 1250px;
+	height: auto;
+	overflow: hidden;
+	margin: auto;
+}
+#exampleFrmDiv,#exampleExpDiv {
+	width: 400px;
+	margin-left: 15px;
+	float: left;
+}
+#exampleExpDiv {
+	width: 800px;
+	height: 570px;
+	overflow: auto;
+}
+#imgDiv {
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	float: left;
+	margin-left: 15px;
+}
+#mainHeadingDiv {
+	font-size: 25pt;
+	font-weight: bold;
+	padding: 15px;
+	clear: both;
+	width: auto;
+	height: auto;
+	overflow: hidden;
+}
+input,select,textarea {
+	width: 300px;
+	padding: 5px;
+	font-size: 11pt;
+	border: 3px solid #000;
+	margin-bottom: 5px;
+}
+.hdr {
+	padding: 5px;
+	color: #FFF;
+	margin-bottom: 5px;
+}
+
+.inputDiv {
+	  padding: 10px;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+#divStandardInputs,#divExpStandardInputs {
+	background-color: #68B159;
+}
+#divStandardInputs .hdr,#divExpStandardInputs .hdr {
+	background-color: #0C4700;
+}
+#divCustomInputs,#divExpCustomInputs {
+	background-color: #223F8B;
+}
+#divCustomInputs .hdr,#divExpCustomInputs .hdr {
+	background-color: #081D56;
+}
+#divCaptcha,#divExpCaptcha {
+	background-color: #5710A8;
+}
+#divCaptcha .hdr,#divExpCaptcha .hdr {
+	background-color: #330667;
+}
+#divSubmit,#divExpSubmit {
+	background-color: #F86704;
+}
+#divSubmit .hdr,#divExpSubmit .hdr {
+	background-color: #983D00;
+}
+#exampleExpDiv {
+	background-color: #254B7C;
+}
+#exampleExpDiv .hdr {
+	background-color: #CD3333;
+}
+.tgl,#btnConfig,#btnFormExample {
+	float: right;
+	font-size: 11pt;
+	font-style: underline;
+	cursor: pointer;
+	clear: right;
+}
+ol,ul {
+	color: #FFF;
+}
+.nameLbl {
+	color: #68B159;
+}
+.nameVal {
+	color: #F86704;
+}
+
+#cfgMainWrapper {
+	margin: auto;
+	width: 800px;
+	height: auto;
+	overflow: hidden;
+	padding: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #EFEFEF;
+}
+#cfgMainWrapper h1 {
+	margin-top: 0px;
+}
+.cfgInputDiv  {
+  padding: 5px;
+  clear: both;
+  height: auto;
+  width: auto;
+  overflow: hidden;
+}
+.cfgLabel {
+	float: left;
+	width: 200px;
+}
+.cfgInput {
+	float: left;
+}
+.cfgInputDiv select,.cfgInputDiv input {
+	width: 220px;
+	padding: 3px;
+}
+.cfgHeadingDiv {
+	clear: both;
+	padding: 5px;
+	font-weight: bold;
+	  width: 702px;
+	  background-color: #CECECE;
+}
+.email {
+	width: 220px;
+}
+.addBtn {
+	width: 30px;
+	height: auto;
+	overflow: hidden;
+	background: #CECECE;
+	font-weight: bold;
+	padding: 3px;
+	float: left;
+	margin-left: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+#cfgSaveBtn,#cfgRegisterBtn {
+	float: left;
+	min-width: 40px;
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	background: #CECECE;
+	font-weight: bold;
+	padding: 8px;
+	text-align: center;
+	cursor: pointer;
+	border: 3px solid;
+	margin-right: 5px;
+}
+#cfgSaveResult {
+	display: none;
+	background: #CD3333;
+	color: #FFF;
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	float: right;
+	padding: 8px;
+	text-align: center;
+	border: 3px solid #CD3333;
+	font-style: italic;
+}
+
+#cfgDivRegistered{
+  padding: 10px;
+  font-style: italic;
+  padding-left: 0px;
+  clear: both;
+  font-size: 9pt;
+}
+
+.note {
+	font-size: 9pt;
+  font-style: italic;
+  color: #CD3333;
+    padding: 5px;
+}

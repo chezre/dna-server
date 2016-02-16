@@ -1,0 +1,43 @@
+<?php
+
+Class ###classname### { 
+
+        ###properties###
+
+        function __construct($id=null) {
+            if (!empty($id)) $this->Load($id);
+        }
+
+        function Load($id) {
+            $sql = "SELECT * FROM `###table###` where `###pk_field###` = $id";
+            $result = $GLOBALS['###connectionname###']->select($sql);
+            if (!$result) {
+                return false;
+            } else {
+                foreach ($result[0] as $k => $v) {
+                    $this->$k = stripslashes($v);
+                }
+                return true;
+            }
+        }
+
+        function Save() {
+            if (isset($this->###pk_field###) && !empty($this->###pk_field###)) {
+                $sql = "
+                    UPDATE `###table###` SET
+                        ###updatefields###
+                    WHERE
+                      `###pk_field###` = '$this->###pk_field###';";
+            } ELSE {
+                $sql = "
+                    INSERT INTO `###table###` (
+                        ###insertfields###
+                    ) VALUES (
+                        ###insertvalues###
+                    );";
+            }
+            $result = $GLOBALS['###connectionname###']->execute($sql);
+            $this->id = (empty($this->###pk_field###)) ? $GLOBALS['###connectionname###']->connection->lastInsertId() : $this->###pk_field###;
+        }
+
+}
